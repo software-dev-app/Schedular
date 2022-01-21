@@ -29,7 +29,7 @@ namespace ApplicationScheduling
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
         }
@@ -51,7 +51,7 @@ namespace ApplicationScheduling
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
