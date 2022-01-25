@@ -1,4 +1,5 @@
 using ApplicationScheduling.Models;
+using ApplicationScheduling.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,7 @@ namespace ApplicationScheduling
             options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddTransient<IAppointmentService, AppointmentService>();
 
             services.AddControllersWithViews();
         }

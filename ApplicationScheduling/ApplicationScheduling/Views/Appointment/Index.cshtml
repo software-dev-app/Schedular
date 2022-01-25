@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <div class="container">
+        @if (User.IsInRole(ApplicationScheduling.Utility.Helper.Admin))
+        {
+            <div class="form-group row" id="divDoctorList" style="width:30%">
+                <label>Select Doctor</label>
+                @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id", "Name"), new { @class = "form-control select2" })
+            </div>
+        }
+    </div>
+</div>
+
+<div id="calendar"></div>
+<partial name="_AddEditAppointment"/>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            select: function (event) {
+                onShowModal(event, null);
+            }
+        });
+        calendar.render();
+    });
+
+    function onShowModal(obj, isEventDetail) {
+        $("#appointmentInput").modal("show");
+    }
+
+    function onCloseModal() {
+        $("#appointmentInput").modal("hide");
+    }
+
+</script>
