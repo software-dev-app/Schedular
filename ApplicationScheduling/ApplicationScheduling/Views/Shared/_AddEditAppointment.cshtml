@@ -15,8 +15,12 @@
                         <textarea type="text" class="form-control" id="title"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="title">Select Patient</label>
+                        <label for="patient">Select Patient</label>
                         @Html.DropDownList("patientId", new SelectList(ViewBag.PatientList, "Id", "Name"), new { @class = "form-control select2" })
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentDate">AppointmentDate</label>
+                        <input type="text" class="form-control" id="appointmentDate"/>
                     </div>
                     <div class="form-group">
                         <label for="title">Select Patient</label>
