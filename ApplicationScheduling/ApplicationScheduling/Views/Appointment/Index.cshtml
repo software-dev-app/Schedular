@@ -19,6 +19,11 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,listWeek',
+            },
             selectable: true,
             select: function (event) {
                 onShowModal(event, null);
@@ -33,6 +38,18 @@
 
     function onCloseModal() {
         $("#appointmentInput").modal("hide");
+    }
+
+    function onSubmitForm() {
+        var requestData = {
+            Id: parseInt($("#id").val()),
+            Title: $("#title"),
+            Description: $("#description"),
+            StartDate: $("#appointmentDate"),
+            Duration: $("#duration"),
+            DoctorId: $("#doctorId"),
+            PatientId: $("#patientId"),
+        }
     }
 
 </script>

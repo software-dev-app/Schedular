@@ -13,5 +13,7 @@ namespace ApplicationScheduling.Models
         {
 
         }
+
+        public DbSet<Appointment>Appointments { get; set; }
     }
 }
