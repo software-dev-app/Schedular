@@ -435,3 +435,4 @@ C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\bin\Deb
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\Razor\Views\Appointment\Index.cshtml.g.cs
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\Razor\Views\Shared\_AddEditAppointment.cshtml.g.cs
+C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\ApplicationScheduling.csproj.AssemblyReference.cache
