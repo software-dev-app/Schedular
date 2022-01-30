@@ -20,10 +20,11 @@ namespace ApplicationScheduling.Services
         {
             var startDate = DateTime.Parse(model.StartDate);
             var endDate = DateTime.Parse(model.StartDate).AddMinutes(Convert.ToDouble(model.Duration));
-
-            if(model!=null && model.Id > 0)
+            
+            if (model != null && model.Id > 0)
             {
                 //update
+                return 2;
             }
             else
             {
@@ -40,11 +41,12 @@ namespace ApplicationScheduling.Services
                     IsDoctorApproved = false,
                     AdminId = model.AdminId
                 };
+                
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
                 return 2;
             }
-            return 1; //prob
+
         }
         public List<DoctorVM> GetDoctorList()
         {
