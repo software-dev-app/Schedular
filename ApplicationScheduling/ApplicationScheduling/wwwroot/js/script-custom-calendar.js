@@ -41,7 +41,8 @@ function InitializeCalendar() {
         $("#appointmentInput").modal("hide");
     }
 
-    function onSubmitForm() {
+function onSubmitForm() {
+    if (checkValidation()) {
         var requestData = {
             Id: parseInt($("#id").val()),
             Title: $("#title").val(),
@@ -53,7 +54,7 @@ function InitializeCalendar() {
         }
 
         $.ajax({
-            url: routeURL + '/api/Appointment/SaveCalendarData',
+            url: routeURL + '/Api/Appointment/SaveCalendarData',
             type: 'POST',
             data: JSON.stringify(requestData),
             contentType: 'application/json',
@@ -69,6 +70,25 @@ function InitializeCalendar() {
             error: function (xhr) {
                 $.notify("Error", "error");
             }
-
         });
     }
+}
+
+function checkValidation() {
+    var isValid = true;
+    if ($("#title").val === undefined || $("#title").val() === "") {
+        isValid = false;
+        $("#title").addClass("error");
+    }
+    else {
+        $("#title").removeClass('error');
+    }
+
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val() === "") {
+        isValid = false;
+        $("#appointmentDate").addClass('error');
+    } else {
+        $("#appointmentDate").removeClass('error');
+    }
+    return isValid;
+}
