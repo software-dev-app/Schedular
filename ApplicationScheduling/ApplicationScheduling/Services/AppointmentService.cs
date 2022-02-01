@@ -24,7 +24,7 @@ namespace ApplicationScheduling.Services
             if (model != null && model.Id > 0)
             {
                 //update
-                return 2;
+                return 1;
             }
             else
             {
