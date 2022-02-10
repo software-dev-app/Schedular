@@ -14,9 +14,11 @@ namespace ApplicationScheduling.Utility
 
         public static string appointmentAdded = "Appointment added successfully.";
         public static string appointmentUpdated = "Appointment updated successfully.";
-        public static string appointmentDelete = "Appointment delete successfully.";
+        public static string appointmentDeleted = "Appointment delete successfully.";
         public static string appointmentExisted = "Appointment for selected date time already exists";
         public static string appointmentNoExists = "Appointment not exists";
+        public static string meetingConfirm = "meeting successfully confirmed.";
+        public static string meetingConfirmError = "Error while confirming meeting";
 
 
         public static string appointmentAddError = "Something went wrong, Please try again.";
