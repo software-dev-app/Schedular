@@ -29,12 +29,19 @@ namespace ApplicationScheduling
         {
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
+            services.AddControllersWithViews();
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddTransient<IAppointmentService, AppointmentService>();
-
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             services.AddHttpContextAccessor();
-            services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +63,7 @@ namespace ApplicationScheduling
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
