@@ -29,14 +29,23 @@ namespace ApplicationScheduling.Utility
 
 
 
-        public static List<SelectListItem> GetRsolesForDropDown()
+        public static List<SelectListItem> GetRsolesForDropDown(bool isAdmin)
         {
-            return new List<SelectListItem>
+            if (isAdmin)
             {
-                new SelectListItem{Value=Helper.Admin,Text=Helper.Admin},
-                new SelectListItem{Value=Helper.Doctor,Text=Helper.Doctor},
-                new SelectListItem{Value=Helper.Patient,Text=Helper.Patient}
-            };
+                return new List<SelectListItem>
+                {
+                    new SelectListItem{Value = Helper.Admin, Text=Helper.Admin }
+                };
+            }
+            else
+            {
+                return new List<SelectListItem>
+                {
+                    new SelectListItem{Value=Helper.Doctor,Text=Helper.Doctor},
+                    new SelectListItem{Value=Helper.Patient,Text=Helper.Patient}
+                };
+            }
         }
 
         public static List<SelectListItem> GetTimeDropDown()
