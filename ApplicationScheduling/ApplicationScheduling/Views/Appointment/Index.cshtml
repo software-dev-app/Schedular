@@ -1,6 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 <div class="row">
+    @if(TempData.ContainsKey("newAdminSignUp"))
+    { 
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" arial-label="close">x</a>
+            <strong>Account create for @TempData["newAdminSignUp"].ToString()</strong>
+        </div>
+    }
     <div class="container">
         @if (User.IsInRole(ApplicationScheduling.Utility.Helper.Admin))
         {
