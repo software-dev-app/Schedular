@@ -436,3 +436,7 @@ C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Deb
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\Razor\Views\Appointment\Index.cshtml.g.cs
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\Razor\Views\Shared\_AddEditAppointment.cshtml.g.cs
 C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\obj\Debug\net5.0\ApplicationScheduling.csproj.AssemblyReference.cache
+C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\bin\Debug\net5.0\ApplicationScheduling.StaticWebAssets.xml
+C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\bin\Debug\net5.0\Mailjet.Client.dll
+C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\csharp\projects\Schedular\ApplicationScheduling\ApplicationScheduling\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
