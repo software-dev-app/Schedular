@@ -1,3 +1,4 @@
+using ApplicationScheduling.DbInitializer;
 using ApplicationScheduling.Models;
 using ApplicationScheduling.Services;
 using ApplicationScheduling.Utility;
@@ -37,18 +38,23 @@ namespace ApplicationScheduling
             services.AddTransient<IAppointmentService, AppointmentService>();
             services.AddDistributedMemoryCache();
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IDbInitializer, DbInitializer.DbInitializer>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromDays(10);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Home/AccessDenied");
+            });
             services.AddHttpContextAccessor();
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -67,6 +73,7 @@ namespace ApplicationScheduling
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
+            dbInitializer.Initializer();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
